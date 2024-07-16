@@ -4,9 +4,6 @@ import BorderModel from "./border.model"
 const getAllBorder = async (query: Record<string, unknown>) => {
     const borderBuilder = new QueryBuilder(BorderModel.find(), query).search(searchableFields)
     const result = await borderBuilder.modelQuery
-
-
-    
     return result
 }
 const getSingleBorder = async (id: string) => {

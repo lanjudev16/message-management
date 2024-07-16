@@ -15,6 +15,16 @@ const createExpense = catchAsync(async (req: Request, res: Response) => {
         data: result
     })
 })
+const getExpense=catchAsync(async(req:Request,res:Response)=>{
+    const result=await expenseService.getExpense()
+    sendResponse(res,{
+        statusCode:httpStatus.OK,
+        success:true,
+        message:"Get all expense successfully",
+        data:result
+    })
+})
 export const expenseController = {
-    createExpense
+    createExpense,
+    getExpense
 }

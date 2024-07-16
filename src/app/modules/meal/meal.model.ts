@@ -19,6 +19,8 @@ const mealSchema=new Schema<TMeal>({
         required:[true,"User id is required"],
         ref:"userModel"
     }
+},{
+    timestamps:true
 })
 const mealModel=model('mealModel',mealSchema)
 export default mealModel
