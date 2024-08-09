@@ -9,10 +9,15 @@ const userSchema = new Schema<TUser>({
     password: {
         type: String,
         required: false,
+        select:0
     },
     needPasswordChanged: {
         type: Boolean,
         default: true
+    },
+    passwordChangeAt:{
+        type:Date,
+        default:new Date()
     },
     role: {
         type: String,

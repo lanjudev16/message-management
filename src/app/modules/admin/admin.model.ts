@@ -23,21 +23,14 @@ const userNameSchema = new Schema<TUserName>({
 
 const adminSchema = new Schema<TAdmin>(
   {
-    id: {
-      type: String,
-      required: [true, 'ID is required'],
-      unique: true,
-    },
-    user: {
-      type: Schema.Types.ObjectId,
-      required: [true, 'User id is required'],
-      unique: true,
-      ref: 'User',
-    },
-    designation: {
-      type: String,
-      required: [true, 'Designation is required'],
-    },
+    id:{
+      type:String,
+  },
+    user:{
+      type:Schema.Types.ObjectId,
+      required:[true,"User is required"],
+      ref:"userModel"
+  },
     name: {
       type: userNameSchema,
       required: [true, 'Name is required'],
@@ -54,7 +47,6 @@ const adminSchema = new Schema<TAdmin>(
     email: {
       type: String,
       required: [true, 'Email is required'],
-      unique: true,
     },
     contactNo: { type: String, required: [true, 'Contact number is required'] },
     emergencyContactNo: {
@@ -88,4 +80,4 @@ const adminSchema = new Schema<TAdmin>(
 );
 
 
-export const Admin = model<TAdmin>('Admin', adminSchema);
+export const adminModel = model<TAdmin>('adminModel', adminSchema);

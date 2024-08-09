@@ -1,11 +1,24 @@
 import { model, Schema } from "mongoose";
 import { TMonthSummary } from "./monthlySummary.interface";
 import { monthNames } from "../../utils/constant";
+import { number } from "zod";
 
 const monthlySummarySchema=new Schema<TMonthSummary>({
     summaryId:{
         type:String,
         required:[false,'Summary is not required']
+    },
+    name:{
+        type:String,
+        required:[true,'Name is  required']
+    },
+    savingMoney:{
+        type:Number,
+        required:[true,'Saving money is not required']
+    },
+    returnMoney:{
+        type:Number,
+        required:[true,'Return money is  required']
     },
     month:{
         type:String,
